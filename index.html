@@ -8,12 +8,13 @@
 </head>
 <body>
     <header>
-        <h1>私のポートフォリオ</h1>
+        <h1>ポートフォリオ</h1>
         <nav>
             <ul>
                 <li><a href="#about">自己紹介</a></li>
                 <li><a href="#projects">プロジェクト</a></li>
                 <li><a href="#contact">連絡先</a></li>
+                <li><a href="https://github.com/momiyama1?tab=repositories" target="_blank">GitHub</a></li>
             </ul>
         </nav>
     </header>
@@ -25,17 +26,45 @@
 
     <section id="projects">
         <h2>プロジェクト</h2>
+    
+        <!-- 掌紋認証システム -->
         <div class="project">
-            <h3>プロジェクト名</h3>
-            <p>プロジェクトの簡単な説明</p>
-            <a href="https://github.com/yourusername/yourproject" target="_blank">GitHubで見る</a>
+            <h3>掌紋認証システム（Web）</h3>
+            <p>
+                このプロジェクトは、Webブラウザ上で動作する掌紋認証システムです。
+                ユーザーの手のひら（掌紋）をカメラで撮影し、その特徴点を抽出して認証を行います。
+                AKAZEアルゴリズムを用いた特徴点抽出とBrute Force Matcherによるマッチング技術を組み合わせ、
+                高精度な生体認証を実現しています。
+            </p>
+            <p><strong>技術スタック:</strong> Python, Flask, OpenCV, AKAZEアルゴリズム</p>
+            <p>
+                実装した主な機能:
+                <ul>
+                    <li>ブラウザ上でのリアルタイムカメラ映像表示と撮影範囲指定</li>
+                    <li>画像の前処理（グレースケール変換、コントラスト調整、照明補正、ノイズ除去）</li>
+                    <li>AKAZEアルゴリズムによる特徴点抽出と可視化</li>
+                    <li>Brute Force MatcherとRANSACを用いた高精度なマッチング処理</li>
+                    <li>認証結果と特徴点マッチングの視覚的フィードバック</li>
+                </ul>
+            </p>
+            <p>
+                このシステムは、生体認証技術の実用的な応用例として開発しました。<br>
+                従来のパスワード認証に代わる、より安全で使いやすい認証方式を目指しています。<br>
+                Webアプリケーションとして実装することで、特別なソフトウェアのインストールなしで
+                誰でも簡単に試すことができます。
+            </p>
+            <a href="https://github.com/momiyama1/palm_auth_web" target="_blank">GitHubで見る</a>
         </div>
-        <!-- 他のプロジェクトを追加 -->
+    
+        <!-- 他のプロジェクト -->
+        <!-- 他のプロジェクトを追加する場合は以下に同様の形式で追加 -->
     </section>
 
     <section id="contact">
         <h2>連絡先</h2>
+        <p>電話番号: 080-8740-8181</p>
         <p>Email: apodihtg@gmail.com</p>
+        <p>GitHub: https://github.com/momiyama1?tab=repositories</p>
     </section>
 
     <footer>

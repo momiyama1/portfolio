@@ -1,11 +1,15 @@
 // script.js
-
-// ハンバーガーメニューの簡単な動作を追加する場合
 document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('nav ul li a');
+
     menuItems.forEach(item => {
         item.addEventListener('click', () => {
-            alert('リンクがクリックされました');
+            const targetId = item.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
 });
