@@ -21,7 +21,24 @@
 
     <section id="about">
         <h2>自己紹介</h2>
-        <p>こんにちは、籾山大地です。ここに自己紹介を入れます。</p>
+        <div class="about-content">
+            <div class="profile-image">
+                <img src="images/profile.jpg" alt="籾山大地のプロフィール画像">
+            </div>
+            <div class="profile-text">
+                <p>はじめまして、籾山大地です。</p>
+                <p>コンピュータサイエンスとソフトウェア開発に情熱を持つエンジニアです。</p>
+                <p>特に以下の分野に興味があります：</p>
+                <ul>
+                    <li>Webアプリケーション開発</li>
+                    <li>コンピュータビジョン</li>
+                    <li>機械学習</li>
+                    <li>セキュリティ</li>
+                </ul>
+                <p>新しい技術を学ぶことが好きで、常に最新の技術動向にアンテナを張っています。</p>
+                <p>チーム開発を重視し、コミュニケーションを大切にしながら、効率的で保守性の高いコードを書くことを心がけています。</p>
+            </div>
+        </div>
     </section>
 
     <section id="projects">
@@ -29,16 +46,28 @@
     
         <!-- 掌紋認証システム -->
         <div class="project">
-            <h3>掌紋認証システム（Web）</h3>
+            <h3>掌紋認証システム（Web版）</h3>
+            <div class="project-image-container">
+                <img src="images/palm-auth-demo.png" alt="掌紋認証システムのデモ画像" class="project-image">
+            </div>
             <p>
                 このプロジェクトは、Webブラウザ上で動作する掌紋認証システムです。
                 ユーザーの手のひら（掌紋）をカメラで撮影し、その特徴点を抽出して認証を行います。
                 AKAZEアルゴリズムを用いた特徴点抽出とBrute Force Matcherによるマッチング技術を組み合わせ、
                 高精度な生体認証を実現しています。
             </p>
-            <p><strong>技術スタック:</strong> Python, Flask, OpenCV, AKAZEアルゴリズム</p>
-            <p>
-                実装した主な機能:
+            
+            <div class="tech-stack">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Flask</span>
+                <span class="tech-badge">OpenCV</span>
+                <span class="tech-badge">AKAZEアルゴリズム</span>
+                <span class="tech-badge">HTML5 Canvas</span>
+                <span class="tech-badge">JavaScript (Web API)</span>
+            </div>
+
+            <div class="feature-list">
+                <h4>実装した主な機能:</h4>
                 <ul>
                     <li>ブラウザ上でのリアルタイムカメラ映像表示と撮影範囲指定</li>
                     <li>画像の前処理（グレースケール変換、コントラスト調整、照明補正、ノイズ除去）</li>
@@ -46,14 +75,19 @@
                     <li>Brute Force MatcherとRANSACを用いた高精度なマッチング処理</li>
                     <li>認証結果と特徴点マッチングの視覚的フィードバック</li>
                 </ul>
-            </p>
+            </div>
+
             <p>
                 このシステムは、生体認証技術の実用的な応用例として開発しました。<br>
                 従来のパスワード認証に代わる、より安全で使いやすい認証方式を目指しています。<br>
                 Webアプリケーションとして実装することで、特別なソフトウェアのインストールなしで
                 誰でも簡単に試すことができます。
             </p>
-            <a href="https://github.com/momiyama1/palm_auth_web" target="_blank">GitHubで見る</a>
+
+            <div class="project-links">
+                <a href="https://github.com/momiyama1/palm_auth_web" target="_blank">GitHubで見る</a>
+                <a href="https://www.youtube.com/watch?v=q1WXctKEUtY" target="_blank" class="demo-link">デモ動画を見る</a>
+            </div>
         </div>
     
         <!-- 他のプロジェクト -->
@@ -64,7 +98,7 @@
         <h2>連絡先</h2>
         <p>電話番号: 080-8740-8181</p>
         <p>Email: apodihtg@gmail.com</p>
-        <p>GitHub: https://github.com/momiyama1?tab=repositories</p>
+        <p>GitHub: <a href="https://github.com/momiyama1?tab=repositories" target="_blank">https://github.com/momiyama1?tab=repositories</a></p>
     </section>
 
     <footer>
