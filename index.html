@@ -12,16 +12,7 @@
         <nav>
             <ul>
                 <li><a href="#about">自己紹介</a></li>
-                <li class="dropdown">
-                    <a href="#projects">プロジェクト</a>
-                    <div class="dropdown-content">
-                        <a href="#palm-auth">掌紋認証システム</a>
-                        <a href="#calendar">カレンダーアプリ</a>
-                        <a href="#todo">ToDoアプリ</a>
-                        <a href="#solar-system">太陽系シミュレーション</a>
-                        <a href="#workout-tracker">筋トレ記録アプリ</a>
-                    </div>
-                </li>
+                <li><a href="#projects">プロジェクト</a></li>
                 <li><a href="#contact">連絡先</a></li>
                 <li><a href="https://github.com/momiyama1?tab=repositories" target="_blank">GitHub</a></li>
             </ul>
@@ -270,6 +261,14 @@
             </div>
         </div>
     </section>
+
+    <!-- プロジェクトモーダル -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <div id="projectContent"></div>
+        </div>
+    </div>
 
     <section id="contact">
         <h2>連絡先</h2>

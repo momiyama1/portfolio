@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (e) => {
             if (window.innerWidth <= 768) {
                 e.preventDefault();
+                // 他のドロップダウンを閉じる
+                dropdowns.forEach(d => {
+                    if (d !== dropdown) {
+                        d.classList.remove('active');
+                    }
+                });
                 dropdown.classList.toggle('active');
             }
         });
@@ -30,6 +36,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
+    });
+
+    // 画面外クリックでドロップダウンを閉じる
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            if (!e.target.closest('.dropdown')) {
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        }
     });
 });
 
@@ -87,3 +104,48 @@ function scrollToSelectedProject() {
         }
     }
 }
+
+// プロジェクトナビゲーションのアクティブ状態を更新
+function updateActiveProject() {
+    const projects = document.querySelectorAll('.project');
+    const navLinks = document.querySelectorAll('.project-nav a');
+    
+    // 現在表示されているプロジェクトを検出
+    const currentProject = projects.find(project => {
+        const rect = project.getBoundingClientRect();
+        return rect.top <= 200 && rect.bottom >= 200;
+    });
+
+    if (currentProject) {
+        const currentId = currentProject.id;
+        // ナビゲーションリンクのアクティブ状態を更新
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentId}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+}
+
+// スクロール時にアクティブプロジェクトを更新
+window.addEventListener('scroll', updateActiveProject);
+
+// プロジェクトタイトルをクリックしたときのスクロール
+document.querySelectorAll('.project h3').forEach(title => {
+    title.addEventListener('click', () => {
+        const project = title.closest('.project');
+        project.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// プロジェクト画像をクリックしたときのスクロール
+document.querySelectorAll('.project-image-container').forEach(container => {
+    container.addEventListener('click', () => {
+        const project = container.closest('.project');
+        project.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// 初期表示時にアクティブプロジェクトを設定
+document.addEventListener('DOMContentLoaded', updateActiveProject);

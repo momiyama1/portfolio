@@ -27,12 +27,21 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-    height: 120px;
+    height: auto;
+    min-height: 120px;
 }
 
 header h1 {
     text-align: center;
     margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+nav {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 nav ul {
@@ -40,6 +49,9 @@ nav ul {
     justify-content: center;
     list-style: none;
     gap: 2rem;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
 }
 
 nav a {
@@ -47,6 +59,9 @@ nav a {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    display: block;
 }
 
 nav a:hover {
@@ -58,12 +73,14 @@ section {
     padding: 5rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 h2 {
     text-align: center;
     margin-bottom: 3rem;
     color: #2c3e50;
+    font-size: 2rem;
 }
 
 /* 自己紹介セクション */
@@ -71,6 +88,10 @@ h2 {
     display: flex;
     gap: 2rem;
     align-items: flex-start;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .profile-image {
@@ -89,218 +110,27 @@ h2 {
 
 .profile-text p {
     margin-bottom: 1rem;
+    font-size: 1.1rem;
 }
 
 .profile-text ul {
     margin: 1rem 0;
     padding-left: 2rem;
+    font-size: 1.1rem;
 }
 
 /* プロジェクトセクション */
-.project {
-    background: #fff;
-    border-radius: 10px;
-    padding: 2rem;
-    margin-bottom: 3rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.project h3 {
-    color: #2c3e50;
-    margin-bottom: 1rem;
-}
-
-.project-image-container {
-    margin: 1rem 0;
-}
-
-.project-image {
-    width: 100%;
-    max-width: 800px;
-    border-radius: 5px;
-}
-
-.tech-stack {
-    margin: 1rem 0;
-}
-
-.tech-badge {
-    display: inline-block;
-    background: #3498db;
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    margin: 0.3rem;
-    font-size: 0.9rem;
-}
-
-.feature-list {
-    margin: 1.5rem 0;
-}
-
-.feature-list ul {
-    list-style-position: inside;
-    margin-left: 1rem;
-}
-
-.project-links {
-    margin-top: 2rem;
-}
-
-.project-links a {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: #2c3e50;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-right: 1rem;
-    transition: background-color 0.3s;
-}
-
-.project-links a:hover {
-    background: #3498db;
-}
-
-/* 連絡先セクション */
-#contact {
-    background: #f8f9fa;
-}
-
-#contact p {
-    margin: 1rem 0;
-}
-
-#contact a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-#contact a:hover {
-    text-decoration: underline;
-}
-
-/* フッター */
-footer {
-    background: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-}
-
-/* アクセシビリティの改善 */
-nav a:focus,
-.dropdown-content a:focus,
-.project-links a:focus {
-    outline: 2px solid #3498db;
-    outline-offset: 2px;
-}
-
-.project-dropdown select:focus {
-    outline: 2px solid #3498db;
-    outline-offset: 2px;
-    border-color: #3498db;
-    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-}
-
-/* レスポンシブデザインの改善 */
-@media (max-width: 768px) {
-    body {
-        padding-top: 160px; /* モバイル時のヘッダー高さ分のパディング */
-    }
-
-    header {
-        height: 160px; /* モバイル時のヘッダー高さ */
-    }
-
-    .about-content {
-        flex-direction: column;
-    }
-
-    .profile-image {
-        flex: 0 0 auto;
-        max-width: 300px;
-        margin: 0 auto;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .dropdown-content {
-        position: static;
-        box-shadow: none;
-        background-color: transparent;
-        padding-left: 20px;
-        display: none; /* 初期状態は非表示 */
-    }
-    
-    .dropdown-content a {
-        padding: 8px 0;
-        color: white;
-    }
-
-    .dropdown.active .dropdown-content {
-        display: block; /* アクティブ時のみ表示 */
-    }
-
-    .projects-header {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .project-dropdown {
-        position: static;
-        width: 100%;
-    }
-    
-    .project-dropdown select {
-        width: 100%;
-    }
-
-    .project {
-        padding: 1.5rem;
-    }
-
-    .project-image {
-        max-width: 100%;
-    }
-
-    .tech-badge {
-        margin: 0.2rem;
-        font-size: 0.8rem;
-    }
-
-    .project-links {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .project-links a {
-        width: 100%;
-        text-align: center;
-    }
-}
-
 .projects-header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
-    position: relative;
-}
-
-.projects-header h2 {
-    text-align: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .project-dropdown {
-    position: absolute;
-    right: 0;
+    flex: 0 0 auto;
 }
 
 .project-dropdown select {
@@ -314,75 +144,276 @@ nav a:focus,
 }
 
 .project-dropdown select:hover {
-    border-color: #999;
+    border-color: #3498db;
 }
 
 .project-dropdown select:focus {
     outline: none;
-    border-color: #666;
-    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
 }
 
-.project-dropdown select option {
-    padding: 8px;
+.project {
+    background: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@media (max-width: 768px) {
-    .projects-header {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .project-dropdown {
-        position: static;
-        width: 100%;
-    }
-    
-    .project-dropdown select {
-        width: 100%;
-    }
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
+.project h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    min-width: 200px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border-radius: 4px;
-    z-index: 1000;
+.project-image-container {
+    margin: 1.5rem 0;
+    overflow: hidden;
+    border-radius: 5px;
 }
 
-.dropdown-content a {
-    color: #333;
-    padding: 12px 16px;
-    text-decoration: none;
+.project-image {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 5px;
     display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.project-image:hover {
+    transform: scale(1.02);
+}
+
+.tech-stack {
+    margin: 1.5rem 0;
+}
+
+.tech-badge {
+    display: inline-block;
+    background: #3498db;
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    margin: 0.3rem;
+    font-size: 0.9rem;
     transition: background-color 0.3s;
 }
 
-.dropdown-content a:hover {
-    background-color: #f5f5f5;
+.tech-badge:hover {
+    background: #2980b9;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+.feature-list {
+    margin: 1.5rem 0;
 }
 
+.feature-list h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.feature-list ul {
+    list-style-position: inside;
+    margin-left: 1rem;
+    font-size: 1.1rem;
+}
+
+.project-links {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.project-links a {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #2c3e50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.project-links a:hover {
+    background: #3498db;
+    transform: translateY(-2px);
+}
+
+/* 連絡先セクション */
+#contact {
+    background: #fff;
+    border-radius: 10px;
+    padding: 3rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#contact p {
+    margin: 1.5rem 0;
+    font-size: 1.1rem;
+}
+
+#contact a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+#contact a:hover {
+    color: #2980b9;
+}
+
+/* フッター */
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+}
+
+/* レスポンシブデザイン */
 @media (max-width: 768px) {
-    .dropdown-content {
-        position: static;
-        box-shadow: none;
-        background-color: transparent;
-        padding-left: 20px;
+    body {
+        padding-top: 160px;
     }
-    
-    .dropdown-content a {
-        padding: 8px 0;
+
+    header {
+        min-height: 160px;
+        padding: 0.5rem 0;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        padding: 0 0.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    nav a {
+        padding: 0.3rem 0;
+        font-size: 0.9rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    section {
+        padding: 3rem 1rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .profile-image {
+        flex: 0 0 auto;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    .profile-text p,
+    .profile-text ul,
+    .feature-list ul {
+        font-size: 1rem;
+    }
+
+    .project {
+        padding: 1.5rem;
+    }
+
+    .project h3 {
+        font-size: 1.3rem;
+    }
+
+    .tech-badge {
+        padding: 0.3rem 0.8rem;
+    }
+
+    .project-links {
+        flex-direction: column;
+    }
+
+    .project-links a {
+        width: 100%;
+        text-align: center;
+    }
+
+    #contact {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* モーダルスタイル */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+.close-button {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-button:hover {
+    color: #000;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
