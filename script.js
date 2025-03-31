@@ -1,7 +1,20 @@
 // script.js
 document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('nav ul li a');
+    const dropdowns = document.querySelectorAll('.dropdown');
 
+    // モバイル表示時のドロップダウンメニューの制御
+    dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('a');
+        link.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            }
+        });
+    });
+
+    // メニューアイテムのクリックイベント
     menuItems.forEach(item => {
         item.addEventListener('click', () => {
             const targetId = item.getAttribute('href').substring(1);
@@ -9,6 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (targetElement) {
                 targetElement.scrollIntoView({ behavior: 'smooth' });
+                // モバイル表示時にドロップダウンメニューを閉じる
+                if (window.innerWidth <= 768) {
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
             }
         });
     });
@@ -53,3 +72,18 @@ document.querySelectorAll('.project-image').forEach(img => {
         this.style.transform = 'translateY(0)';
     });
 });
+
+function scrollToSelectedProject() {
+    const select = document.getElementById('projectSelect');
+    const projectId = select.value;
+    
+    if (projectId) {
+        const element = document.getElementById(projectId);
+        if (element) {
+            element.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+}

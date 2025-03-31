@@ -15,6 +15,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding-top: 120px;
 }
 
 /* ヘッダー */
@@ -26,6 +27,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
+    height: 120px;
 }
 
 header h1 {
@@ -187,8 +189,31 @@ footer {
     margin-top: 2rem;
 }
 
-/* レスポンシブデザイン */
+/* アクセシビリティの改善 */
+nav a:focus,
+.dropdown-content a:focus,
+.project-links a:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+.project-dropdown select:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* レスポンシブデザインの改善 */
 @media (max-width: 768px) {
+    body {
+        padding-top: 160px; /* モバイル時のヘッダー高さ分のパディング */
+    }
+
+    header {
+        height: 160px; /* モバイル時のヘッダー高さ */
+    }
+
     .about-content {
         flex-direction: column;
     }
@@ -203,5 +228,161 @@ footer {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
+    }
+
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background-color: transparent;
+        padding-left: 20px;
+        display: none; /* 初期状態は非表示 */
+    }
+    
+    .dropdown-content a {
+        padding: 8px 0;
+        color: white;
+    }
+
+    .dropdown.active .dropdown-content {
+        display: block; /* アクティブ時のみ表示 */
+    }
+
+    .projects-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .project-dropdown {
+        position: static;
+        width: 100%;
+    }
+    
+    .project-dropdown select {
+        width: 100%;
+    }
+
+    .project {
+        padding: 1.5rem;
+    }
+
+    .project-image {
+        max-width: 100%;
+    }
+
+    .tech-badge {
+        margin: 0.2rem;
+        font-size: 0.8rem;
+    }
+
+    .project-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .project-links a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.projects-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.projects-header h2 {
+    text-align: center;
+}
+
+.project-dropdown {
+    position: absolute;
+    right: 0;
+}
+
+.project-dropdown select {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    min-width: 200px;
+}
+
+.project-dropdown select:hover {
+    border-color: #999;
+}
+
+.project-dropdown select:focus {
+    outline: none;
+    border-color: #666;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+
+.project-dropdown select option {
+    padding: 8px;
+}
+
+@media (max-width: 768px) {
+    .projects-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .project-dropdown {
+        position: static;
+        width: 100%;
+    }
+    
+    .project-dropdown select {
+        width: 100%;
+    }
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 200px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f5f5f5;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background-color: transparent;
+        padding-left: 20px;
+    }
+    
+    .dropdown-content a {
+        padding: 8px 0;
     }
 }

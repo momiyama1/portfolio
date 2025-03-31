@@ -12,7 +12,16 @@
         <nav>
             <ul>
                 <li><a href="#about">自己紹介</a></li>
-                <li><a href="#projects">プロジェクト</a></li>
+                <li class="dropdown">
+                    <a href="#projects">プロジェクト</a>
+                    <div class="dropdown-content">
+                        <a href="#palm-auth">掌紋認証システム</a>
+                        <a href="#calendar">カレンダーアプリ</a>
+                        <a href="#todo">ToDoアプリ</a>
+                        <a href="#solar-system">太陽系シミュレーション</a>
+                        <a href="#workout-tracker">筋トレ記録アプリ</a>
+                    </div>
+                </li>
                 <li><a href="#contact">連絡先</a></li>
                 <li><a href="https://github.com/momiyama1?tab=repositories" target="_blank">GitHub</a></li>
             </ul>
@@ -42,10 +51,22 @@
     </section>
 
     <section id="projects">
-        <h2>プロジェクト</h2>
-    
+        <div class="projects-header">
+            <h2>プロジェクト</h2>
+            <div class="project-dropdown">
+                <select id="projectSelect" onchange="scrollToSelectedProject()">
+                    <option value="">プロジェクトを選択</option>
+                    <option value="palm-auth">掌紋認証システム</option>
+                    <option value="calendar">カレンダーアプリ</option>
+                    <option value="todo">ToDoアプリ</option>
+                    <option value="solar-system">太陽系シミュレーション</option>
+                    <option value="workout-tracker">筋トレ記録アプリ</option>
+                </select>
+            </div>
+        </div>
+
         <!-- 掌紋認証システム -->
-        <div class="project">
+        <div id="palm-auth" class="project">
             <h3>掌紋認証システム</h3>
             <div class="project-image-container">
                 <img src="images/palm_auth_web_demo.png" alt="掌紋認証システムのデモ画像" class="project-image">
@@ -91,7 +112,7 @@
         </div>
     
         <!-- カレンダーアプリ -->
-        <div class="project">
+        <div id="calendar" class="project">
             <h3>カレンダーアプリ</h3>
             <div class="project-image-container">
                 <img src="images/calendar_demo.png" alt="カレンダーアプリのデモ画像" class="project-image">
@@ -130,7 +151,7 @@
             </div>
         </div>
 
-        <div class="project">
+        <div id="todo" class="project">
             <h3>ToDoアプリ</h3>
             <div class="project-image-container">
                 <img src="images/todo-app_demo.png" alt="ToDoアプリのデモ画像" class="project-image">
@@ -171,7 +192,7 @@
         </div>
 
         <!-- 太陽系シミュレーションゲーム -->
-        <div class="project">
+        <div id="solar-system" class="project">
             <h3>太陽系シミュレーション</h3>
             <div class="project-image-container">
                 <img src="images/SolarSystemSimulation_demo.png" alt="太陽系シミュレーションゲームのデモ画像" class="project-image">
@@ -207,9 +228,47 @@
                 <a href="https://github.com/momiyama1/SolarSystemSimulation" target="_blank">GitHubで見る</a>
             </div>
         </div>
-    
-        <!-- 他のプロジェクト -->
-        <!-- 他のプロジェクトを追加する場合は以下に同様の形式で追加 -->
+
+        <!-- 筋トレ記録アプリ -->
+        <div id="workout-tracker" class="project">
+            <h3>筋トレ記録アプリ</h3>
+            <div class="project-image-container">
+                <img src="images/workout-tracker_demo.png" alt="筋トレ記録アプリのデモ画像" class="project-image">
+            </div>
+            <p>
+                このプロジェクトは、Reactを使用して作成した筋トレ記録アプリです。
+                種目ごとのセット数と回数を記録し、前回の記録との比較も可能です。
+                また、セット間の休憩時間を計測するタイマー機能も搭載しています。
+            </p>
+
+            <div class="tech-stack">
+                <span class="tech-badge">React</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">CSS3</span>
+                <span class="tech-badge">LocalStorage</span>
+            </div>
+
+            <div class="feature-list">
+                <h4>実装した主な機能:</h4>
+                <ul>
+                    <li>種目の記録（セット数、回数）</li>
+                    <li>前回の記録との比較表示</li>
+                    <li>セット間休憩用タイマー機能</li>
+                    <li>記録の履歴表示</li>
+                    <li>データのローカルストレージ保存</li>
+                </ul>
+            </div>
+
+            <p>
+                このアプリは、筋トレの記録を効率的に管理したいユーザーに向けて開発しました。<br>
+                前回の記録との比較機能により、トレーニングの進捗を視覚的に確認することができます。<br>
+                また、タイマー機能により、適切な休憩時間を確保することができます。
+            </p>
+
+            <div class="project-links">
+                <a href="https://github.com/momiyama1/workout-tracker" target="_blank">GitHubで見る</a>
+            </div>
+        </div>
     </section>
 
     <section id="contact">
